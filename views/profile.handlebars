@@ -16,20 +16,5 @@
     </form>
   </div>
   
-  {{#if movie.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current movie:</h3>
-
-    {{#each movie as |movie|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="//{{movie.id}}">{{movie.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{movie.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  {{/if}}
+ 
 </div>
