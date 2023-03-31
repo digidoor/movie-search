@@ -13,11 +13,15 @@
       User Registry
     </h1>
     <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
     <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/directory/public/js/login.js">login</a>
+        {{/if}}
+      </nav>
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
@@ -26,6 +30,6 @@
       
   </footer>
   {{#if logged_in}}
-  <script src=""></script>
+  <script src="/directory/public/js/logout.js"></script>
   {{/if}}
 </body>
