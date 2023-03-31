@@ -18,6 +18,56 @@ body{
 a{
     text-decoration: none;
 }
+hr{
+    padding: 50px;
+    background-color: #171717;
+    border: none;
+}
+.login{
+    padding: 30px;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    
+}
+
+.login button{
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: var(--yellow-color);
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: transparent; 
+    cursor: pointer;
+}
+.register{
+    
+    padding: 30px;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+}
+
+.registerBtn{
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: var(--yellow-color);
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: transparent; 
+    cursor: pointer;
+    
+}
 img{
     width: 100%;
     display: block;
@@ -56,8 +106,6 @@ img{
 }
 .logo h1 span{
     color: var(--yellow-color);
-    animation: slideBottom 1s ease forwards;
-    animation-delay: .7s;
 }
 .logo h2{
   color: white;
@@ -251,7 +299,29 @@ img{
 
 .hidden{
     display: none;
+};
+
+.creators{
+    padding: 50px;
+    
 }
+
+.creators h4{
+    background-color: transparent;
+    padding: 30px;
+    margin-top: 200px;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.creators h4 span{
+    font-size: x-large;
+    color: aqua;
+    font-weight: bold;
+}
+
+
 
 @media(max-width: 450px){
     .logo p{
