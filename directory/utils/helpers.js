@@ -1,14 +1,14 @@
 module.exports = {
   get_emoji: () => {
     const randomNum = Math.random();
-    let book = "📗";
+    let movie = "📗";
 
     if (randomNum > 0.7) {
-      book = "📘";
+      movie = "📘";
     } else if (randomNum > 0.4) {
-      book = "📙";
+      movie = "📙";
     }
 
-    return `<span for="img" aria-label="book">${book}</span>`;
+    return `<span for="img" aria-label="movie">${movie}</span>`;
   },
 };
