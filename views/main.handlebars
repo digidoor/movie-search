@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
+  <link href="../public/js/login.js">
+  <link href="./login.handlebars">
+  <link href="./profile.handlebars">
+
 </head>
 
 <body>
@@ -14,22 +18,57 @@
     </h1>
     <!-- Only display the logout button if the user is logged in -->
     <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/directory/public/js/login.js">login</a>
-        {{/if}}
-      </nav>
+      <!-- Conditionally render login or logout links -->
+      {{#if logged_in}}
+      <a href="/profile">profile</a> |
+      <button class="no-button" id="logout">logout</button>
+      {{else}}
+      <a href="/directory/public/js/login.js">login</a>
+      {{/if}}
+    </nav>
   </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
-  {{#if logged_in}}
-  <script src="/directory/public/js/logout.js"></script>
-  {{/if}}
+  <div class="wrapper">
+    <div class="logo">
+      <div class="container">
+        <h1><span>Movie Search</span></h1>
+      </div>
+    </div>
+    <div class="search-container">
+      <div class="search-element">
+        <h3>Search Movie:</h3>
+        <input type="text" class="form-control" placeholder="Search Movie Title ..." id="movie-search-box"
+          onkeyup="findMovies()" onclick="findMovies()">
+        <div class="search-list" id="search-list"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="result-container">
+        <div class="result-grid" id="result-grid"></div>
+      </div>
+    </div>
+    <button id="saveBtn" class="hidden">Save</button>
+    <div class="wrapper">
+      <div class="logo">
+        <div class="container">
+          <h1><span>Movie Search</span></h1>
+        </div>
+      </div>
+      <hr />
+      <div class="login">
+        <button class="signIn">Sign In</button>
+      </div>
+      <div class="register">
+        <button class="registerBtn">Register</button>
+      </div>
+    </div>
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+    <footer>
+
+    </footer>
+    {{#if logged_in}}
+    <script src="./public/js/logout.js"></script>
+    <script src="../models/User.js"></script>
+    {{/if}}
 </body>
