@@ -19,10 +19,6 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     year: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,12 +27,43 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    filename: {
+    released: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+//^^^new
+    genre: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+//^^^change type ->    
+    writer: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+//
+    actors: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+//
+    plot: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+ //   
+    language: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+//
+    awards: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+//
+    poster: {
+      type: DataTypes.IMG,
       allowNull: false,
     },
   },
