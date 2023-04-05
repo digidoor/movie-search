@@ -18,6 +18,11 @@ Once loading the webpage you will be prompt with two movies selection you want t
 
 The following images show the feature of the application.
 
+<img width="1280" alt="Screen Shot 2023-04-05 at 3 25 04 PM" src="https://user-images.githubusercontent.com/111917255/230225153-a170747d-ed84-4a81-8952-65fb1d3721d9.png">
+<img width="1280" alt="Screen Shot 2023-04-05 at 3 25 54 PM" src="https://user-images.githubusercontent.com/111917255/230225174-3e5c7d38-7884-4f2e-8d8e-3c2456762717.png">
+<img width="1280" alt="Screen Shot 2023-04-05 at 3 26 26 PM" src="https://user-images.githubusercontent.com/111917255/230225189-85cf35ba-8f06-4b69-aae1-ba183dcb34b1.png">
+
+
 ## License
 
 This project is license under MIT
