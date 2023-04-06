@@ -60,7 +60,7 @@ hr{
     color: var(--yellow-color);
     font-size: 2rem;
     font-weight: bold;
-    margin-right: 700px;
+    margin-right: 600px;
 }
 .navbar ul li button{
     text-decoration: none;
