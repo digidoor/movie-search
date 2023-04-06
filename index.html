@@ -14,30 +14,34 @@
     <link href="./login.handlebars">
     <link href="./profile.handlebars">
 </head>
-<body>
-
     <body>
-        <div class="wrapper">
-                <div class="container">
-                    <nav class="navbar">
-                        <ul>
-                            <h1>Movie Search</h1>
-                            <li><button>Sign In</button></li>
-                            <li><button>Register</button></li>
-                            <li><button>game</button></li>
-                        </ul>
-                    </nav>
+        <div class = "wrapper">
+            <div class = "logo">
+                <div class = "container">
+                   
+                   <nav class="navbar">
+                    <ul>
+                        <h1 >Movie Search</h1> 
+                        <li><button>Sign In</button></li>
+                        <li><button>Register</button></li>
+                        <li><button>Game</button></li>
+                    </ul>
+                   </nav>
                 </div>
             </div>
-        </div>
-        <div class = "search-container">
-            <div class = "search-element">
-                <h3>Search Movie:</h3>
-                <input type = "text" class = "form-control" placeholder="Search Movie Title ..." id = "movie-search-box" 
-                onkeyup="findMovies()" onclick = "findMovies()">
-                <div class = "search-list" id = "search-list"></div>
+            <div class = "search-container">
+                <div class = "search-element">
+                    <h3>Search Movie:</h3>
+                    <input type = "text" class = "form-control" placeholder="Search Movie Title ..." id = "movie-search-box" 
+                    onkeyup="findMovies()" onclick = "findMovies()">
+                    <div class = "search-list" id = "search-list"></div>
+                </div>
             </div>
-            <script src="./public/js/script.js"></script>
+            <div class = "container">
+                <div class = "result-container">
+                    <div class = "result-grid" id = "result-grid"></div>
+                </div>
+            <script src="./public/js/movies.js"></script>
     </body>
     <script src="./public/js/logout.js"></script>
     <script src="../models/User.js"></script>
