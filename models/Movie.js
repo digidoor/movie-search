@@ -62,10 +62,10 @@ Movie.init(
       allowNull: false,
     },
 //
-    // poster: {
-    //   type: DataTypes.IMG,
-    //   allowNull: false,
-    // },
+    poster: {
+      type: DataTypes.STRING, //base64 to actually save the image in the db instead of the url
+      allowNull: false,
+    },
   },
   {
     sequelize,
