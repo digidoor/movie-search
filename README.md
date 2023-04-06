@@ -4,7 +4,7 @@
 
 ## Description
 
-The application Box Office Crash is created for an entertaining movie game application where users will have fun to play and use it. We us a team all come up with an ideas to create this application in order to achieve users attention and to have a successful project goal. This project helped us to use our skills we learnt in frontend development practices and has been fully created from scratch.
+The application Box Office Crash is created for an entertaining movie game application where users will have fun to play and use it. We as a team all come up with an ideas to create this application in order to achieve users attention and to have a successful project goal. This project helped us to use our skills we learnt in frontend development practices and has been fully created from scratch.
 
 ## Installation
 
