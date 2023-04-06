@@ -63,7 +63,7 @@ Movie.init(
     },
 //
     poster: {
-      type: DataTypes.IMG,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
