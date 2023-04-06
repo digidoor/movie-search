@@ -62,10 +62,10 @@ Movie.init(
       allowNull: false,
     },
 //
-    poster: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // poster: {
+    //   type: DataTypes.IMG,
+    //   allowNull: false,
+    // },
   },
   {
     sequelize,
