@@ -1,42 +1,147 @@
 <div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+    <div class="col-md-6">
+        <nav class="navbar">
+            <ul>
+                <h1>Movie Search</h1>
+                <li><button class="logIn">Log In</button></li>
+                <li><button class="signUp">Sign Up</button></li>
+            </ul>
+        </nav>
 
-    <form class="form login-form">
-      <div class="form">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-6">
+        <hr>
+        <form id="login-content" class="form login-form">
+            <h2>Login</h2>
+            <div class="form">
+                <label for="email-login"></label>
+                <input class="form-input" type="text" id="email-login" placeholder="Your Email" />
+                <label for="password-login"></label>
+                <input class="form-input" type="password" id="password-login" placeholder="Your Password" />
+            </div>
+            <div class="form">
+                <button id="loginBtn" class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
     
-    <h2>Signup</h2>
-    <form class="form signup-form">
-      <div class="form">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
-</div>
+    <div class="col-md-6">
+        <form class="form signup-form" id="hidden">
+            <h2>Signup</h2>
+            <div class="form">
+                <label for="name-signup"></label>
+                <input class="form-input" type="text" id="name-signup" placeholder="Your Name" />
+                <label for="email-signup"></label>
+                <input class="form-input" type="text" id="email-signup" placeholder="Your Email" />
+                <label for="password-signup"></label>
+                <input class="form-input" type="password" id="password-signup" placeholder="Your Password" />
 
+                <div class="form">
+                    <button id="signupBtn" class="btn btn-primary" type="submit">Signup</button>
+                </div>
+        </form>
+    </div>
+    <div class="creators">
+        <h4>This Website Is Created By:  <span class="mutiple-text"></span> </h4>
+      </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 <script src="/js/login.js"></script>
+<script src="/public/js/typed.js"></script>
+
+
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: grey;
+        background-position: center;
+        background-size: cover;
+        height: 1000px;
+    }
+
+    .navbar {
+        justify-content: center;
+        position: relative;
+    }
+
+    .navbar ul li {
+        margin-top: 15px;
+        
+    }
+
+    h1 {
+        color: var(--yellow-color);
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 1px;
+        padding: 15px;
+        
+        
+    }
+
+
+    .form {
+        width: 400px;
+        box-shadow: 0 0 3px 0 rgb(0, 0, 0, 0.3);
+        background-color: wheat;
+        padding: -5px;
+        margin: 8% auto 0;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 30px;
+
+    }
+
+    h2 {
+        color: #1c8adb;
+        margin-top: 12px;
+        padding-top: 12px;
+
+    }
+
+    .form-input {
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px 0px;
+        width: 90%;
+        border: 1px solid #999;
+        outline: none;
+        background-color: transparent;
+
+    }
+
+    #loginBtn {
+        color: #fff;
+        background-color: #1c8adb;
+        width: 90%;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 15px;
+        margin: 10px 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: center;
+    }
+
+    #signupBtn {
+        color: #fff;
+        background-color: #1c8adb;
+        width: 90%;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 15px;
+        margin: 10px 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: center;
+    }
+
+    #hidden {
+        display: none
+    }
+</style>

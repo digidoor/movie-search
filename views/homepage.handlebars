@@ -1,21 +1,31 @@
-<div class="wrapper">
-  <div class="container">
-    <nav class="navbar">
-      <ul>
-        <h1>Movie Search</h1>
-        <li><button>Sign In</button></li>
-        <li><button>Register</button></li>
-        <li><button>logged in</button></li>
-        <li><button>logged out</button></li>
-      </ul>
-    </nav>
-    <div class="search-container">
-      <div class="search-element">
-        <h3>Search Movie:</h3>
-        <input type="text" class="form-control" placeholder="Search Movie Title ..." id="movie-search-box"
-          onkeyup="findMovies()" onclick="findMovies()">
-        <div class="search-list" id="search-list"></div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class = "wrapper">
+            <div class = "logo">
+                <div class = "container">
+                   
+                   <nav class="navbar">
+                    <ul>
+                        <h1 >Movie Search</h1> 
+                        <li><button id="logout">Log Out</button></li>
+                        <li><button id="movieHistory">Movie History</button></li>
+                    </ul>
+                   </nav>
+                </div>
+            </div>
+            <div class = "search-container">
+                <div class = "search-element">
+                    <h3>Search Movie:</h3>
+                    <input type = "text" class = "form-control" placeholder="Search Movie Title ..." id = "movie-search-box" 
+                    onkeyup="findMovies()" onclick = "findMovies()">
+                    <div class = "search-list" id = "search-list"></div>
+                </div>
+            </div>
+            <div class = "container">
+                <div class = "result-container">
+                    <div class = "result-grid" id = "result-grid"></div>
+                </div>
+                </div>
+            <button id="saveBtn" class="hidden">Save</button>
+        </div>
+
+        <script src="js/movies.js"></script>
+        <script src="js/logout.js"></script>

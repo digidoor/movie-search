@@ -60,7 +60,7 @@ hr{
     color: var(--yellow-color);
     font-size: 2rem;
     font-weight: bold;
-    margin-right: 600px;
+    margin-right: 550px;
 }
 .navbar ul li button{
     text-decoration: none;
@@ -348,22 +348,24 @@ img{
 };
 
 .creators{
-    padding: 50px;
+    padding: 30px;
+    display: flex;
+    
     
 }
 
 .creators h4{
     background-color: transparent;
     padding: 30px;
-    margin-top: 200px;
-    color: white;
+    margin-top: 50px;
+    color: black;
     font-size: x-large;
     font-weight: bold;
 }
 
 .creators h4 span{
     font-size: x-large;
-    color: aqua;
+    color: white;
     font-weight: bold;
 }
 

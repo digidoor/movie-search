@@ -30,7 +30,19 @@ const sess = {
 };
 
 app.use(session(sess));
+///////////////////
 
+
+app.get('/index', (req, res) =>
+  res.sendFile(path.join(__dirname, 'index.html'))
+);
+
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, 'public/main.html'))
+);
+
+
+///////////////////
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
