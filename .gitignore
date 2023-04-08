@@ -1,3 +1,6 @@
+# MacOS specific files that keep sneaking in
+.DS_Store
+
 # Logs
 logs
 *.log
