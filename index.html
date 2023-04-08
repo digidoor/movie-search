@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link href="./Box-Office-Crash/index.html">
+    <link href="../public/js/login.js">
+    <link href="./login.handlebars">
+    <link href="./profile.handlebars">
+</head>
+    <body>
+        <div class = "wrapper">
+            <div class = "logo">
+                <div class = "container">
+                   
+                   <nav class="navbar">
+                    <ul>
+                        <h1 >Movie Search</h1> 
+                        <li><button>Sign In</button></li>
+                        <li><button>Register</button></li>
+                        <li><button>Game</button></li>
+                    </ul>
+                   </nav>
+                </div>
+            </div>
+            <div class = "search-container">
+                <div class = "search-element">
+                    <h3>Search Movie:</h3>
+                    <input type = "text" class = "form-control" placeholder="Search Movie Title ..." id = "movie-search-box" 
+                    onkeyup="findMovies()" onclick = "findMovies()">
+                    <div class = "search-list" id = "search-list"></div>
+                </div>
+            </div>
+            <div class = "container">
+                <div class = "result-container">
+                    <div class = "result-grid" id = "result-grid"></div>
+                </div>
+            </div>
+            <button id="saveBtn" class="hidden">Save</button>
+        </div>
+            <script src="./public/js/movies.js"></script>
+    </body>
+    <script src="./public/js/logout.js"></script>
+    <script src="../models/User.js"></script>
+</html>
