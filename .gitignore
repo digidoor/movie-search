@@ -1,6 +1,9 @@
 # MacOS specific files that keep sneaking in
 .DS_Store
 
+# VS Code settings files/folders
+.vscode/
+
 # Logs
 logs
 *.log
