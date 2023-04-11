@@ -1,7 +1,7 @@
-const loginBtn = document.querySelector(".logIn");
-const signupBtn = document.querySelector(".signUp");
-const logInContent = document.querySelector("#login-content")
-const signUpContent = document.querySelector("#hidden")
+const loginBtn = document.querySelector("#logIn");
+const signupBtn = document.querySelector("#signUp");
+const logInContent = document.querySelector("#login-form")
+const signUpContent = document.querySelector("#signup-form")
 
 const loginFormHandler = async (event) => {
   // Stop the browser from submitting the form so we can do so with JavaScript
@@ -51,11 +51,11 @@ const signupFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.login-form')
+  .querySelector('#login-form')
   .addEventListener('submit', loginFormHandler);
 
   document
-  .querySelector('.signup-form')
+  .querySelector('#signup-form')
   .addEventListener('submit', signupFormHandler);
 
   signupBtn.addEventListener("click", function(){
