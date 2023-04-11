@@ -18,6 +18,13 @@ body{
 a{
     text-decoration: none;
 }
+h2{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    color: #171717;
+}
 hr{
     padding: 50px;
     background-color: #171717;
@@ -43,6 +50,7 @@ hr{
     background-color: transparent;
     position: sticky;
     top: 0;
+    
 }
 .navbar ul{
     display: flex;   
@@ -141,21 +149,57 @@ img{
 .logo{
     padding: 1rem 0;
     border-bottom: 1px solid var(--light-dark-color);
-    margin-bottom: 0;
-}
-#logo h1{
-    font-size: 2rem;
-    color: #fff;
-    font-weight: bold;
-}
-#logo h1 span{
-    color: var(--yellow-color);
+    justify-content: center;
+    justify-items: center;
+
     
+}
+
+.logo h2{
+ 
+  
+ 
+}
+.logo ul{
+    display: flex;   
+    list-style: none;
+    margin: 20px 0px;
+    justify-content: right;
+    padding: px;
+
+}
+.logo ul li{
+    font-family: century;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
     
 }
 .logo h2{
-  color: white;
-  margin-left: 900px;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 150px;  
+}
+.logo h2 span{
+    color: white
+}
+.logo ul li button{
+    text-decoration: none;
+    color: orange;
+    padding: 8px 25px;
+    transition: all .5s ease;
+    background-color: transparent;
+    margin-top: 0;
+}
+
+
+.logo ul li button:hover{
+    background-color: transparent;
+    color: white;
+    box-shadow: 0 0 10px;
 }
 .search-element{
     display: -webkit-box;
