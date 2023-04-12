@@ -71,7 +71,7 @@ router.get('/movie/:id', withAuth, async (req, res) => {
     });
 
     const movie = dbMovieData.get({ plain: true });
-    res.render('movie', { movie, loggedIn: req.session.loggedIn });
+    res.render('movie', { ...movie, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
