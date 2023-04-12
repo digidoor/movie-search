@@ -48,26 +48,26 @@ router.get('/login', (req, res) => {
 router.get('/movie/:id', withAuth, async (req, res) => {
   try {
     const dbMovieData = await Movie.findByPk(req.params.id, {
-      include: [
-        {
-          model: Movie,
-          attributes: [
-            'id',
-            'imdb',
-            'title',
-            'year',
-            'rating',
-            'released',
-            'genre',
-            'writer',
-            'actors',
-            'plot',
-            'language',
-            'awards',
-            'poster',
-          ],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Movie,
+      //     attributes: [
+      //       'id',
+      //       'imdb',
+      //       'title',
+      //       'year',
+      //       'rating',
+      //       'released',
+      //       'genre',
+      //       'writer',
+      //       'actors',
+      //       'plot',
+      //       'language',
+      //       'awards',
+      //       'poster',
+      //     ],
+      //   },
+      // ],
     });
 
     const movie = dbMovieData.get({ plain: true });
