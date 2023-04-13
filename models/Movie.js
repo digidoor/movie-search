@@ -64,8 +64,16 @@ Movie.init(
 //
     poster: {
       type: DataTypes.STRING, //base64 to actually save the image in the db instead of the url
-      allowNull: false,
+      allowNull: true,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      reference: {
+        model: 'user',
+        key: 'id',
+        unique: false
+      }
+    }
   },
   {
     sequelize,
