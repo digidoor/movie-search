@@ -5,49 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
-  <link href="../public/js/login.js">
-  <link href="./login.handlebars">
-  <link href="./profile.handlebars">
-  <link rel="stylesheet" href="./public/css/style.css">
+  <link href="/public/js/login.js">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      User Registry
-    </h1>
-    <!-- Only display the logout button if the user is logged in -->
-    <nav>
-      <!-- Conditionally render login or logout links -->
-      {{#if logged_in}}
-      <a href="/profile">profile</a> |
-      <button class="no-button" id="logout">logout</button>
-      {{else}}
-      <a href="/directory/public/js/login.js">login</a>
-      {{/if}}
-    </nav>
-  </header>
-   <div class="wrapper">
-                <div class="container">
-                    <nav class="navbar">
-                        <ul>
-                            <h1>Movie Search</h1>
-                            <li><button>Sign In</button></li>
-                            <li><button>Register</button></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        <div class="search-container">
-          <div class="search-element">
-            <h3>Search Movie:</h3>
-            <input type="text" class="form-control" placeholder="Search Movie Title ..." id="movie-search-box"
-              onkeyup="findMovies()" onclick="findMovies()">
-            <div class="search-list" id="search-list"></div>
-          </div>
-        </div>
-    {{#if logged_in}}
-    <script src="./public/js/logout.js"></script>
-    <script src="../models/User.js"></script>
-    {{/if}}
+  {{{body}}}
 </body>

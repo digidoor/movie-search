@@ -63,7 +63,7 @@ Movie.init(
     },
 //
     poster: {
-      type: DataTypes.IMG,
+      type: DataTypes.STRING, //base64 to actually save the image in the db instead of the url
       allowNull: false,
     },
   },
