@@ -15,6 +15,11 @@
     "password": "password"
   },
   {
+    "name": "example",
+    "email": "example@email.com",
+    "password": "password"
+  },
+  {
     "name": "Jordan",
     "email": "jordan99@msn.com",
     "password": "password"
