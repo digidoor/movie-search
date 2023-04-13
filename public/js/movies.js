@@ -109,6 +109,7 @@ function displayMovieDetails(details){
     localStorage.setItem("imdb", details.imdbID);
     
      let movie = {
+        imdb,
         title: movieTitle,
         year,
         rating,
@@ -118,8 +119,7 @@ function displayMovieDetails(details){
         actors,
         plot,
         language,
-        awards,
-        imdb
+        awards
      };
 
     async function grabFromLocalStorageAndSave(event)
@@ -129,7 +129,7 @@ function displayMovieDetails(details){
         console.log(imdb);
         const response = await fetch('/api/users/save', {
             method: 'POST',
-            body: JSON.stringify({ imdb, movieTitle, year, rating, released, genre, writer, actors, plot, language, awards }),
+            body: JSON.stringify({ ...movie }),
             headers: { 'Content-Type': 'application/json' }
         });
         if(response.ok)
