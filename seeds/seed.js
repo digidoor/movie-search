@@ -7,7 +7,7 @@ console.log(userData);
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  await seedMovie();
+  await seedMovie();// nix this once we can create via omdb fetch data
 
   await User.bulkCreate(userData, {
     individualHooks: true,
