@@ -46,6 +46,6 @@ If you have any questions about this projects, please contact us directly at bel
 
 -[Github]('https://github.com/OmerMasih') <br> -[Github]('https://github.com/mdawood11/mdawood11')
 
-[Github] ('https://github.com/gdutra2002')
+-[Github]('https://github.com/gdutra2002')
 
 ### This project is created by Mohammad, Gary, Farid, Nicholas, Alan and Omer.👏🏻
