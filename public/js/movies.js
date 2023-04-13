@@ -68,44 +68,43 @@ function loadMovieDetails(){
 function displayMovieDetails(details){
     console.log(details)
     resultGrid.innerHTML = `
-    <div class = "movie-poster">
-        <img src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster">
-    </div>
-    <div class = "movie-info">
-        <h3 class = "movie-title">${details.Title}</h3>
-        <ul class = "movie-misc-info">
-            <li class = "year">Year: ${details.Year}</li>
-            <li class = "rated">Ratings: ${details.imdbRating}</li>
-            <li class = "released">Released: ${details.Released}</li>
-        </ul>
-        <p class = "genre"><b>Genre:</b> ${details.Genre}</p>
-        <p class = "writer"><b>Writer:</b> ${details.Writer}</p>
-        <p class = "actors"><b>Actors: </b>${details.Actors}</p>
-        <p class = "plot"><b>Plot:</b> ${details.Plot}</p>
-        <p class = "language"><b>Language:</b> ${details.Language}</p>
-        <p class = "awards"><b><i class = "fas fa-award"></i></b> ${details.Awards}</p>
-    </div>
-    `;
- var movieTitle = details.Title
- localStorage.setItem("movieTitle", details.Title)   
- var year = details.Year
- localStorage.setItem("Year", details.Year)  
- var rating = details.imdbRating
- localStorage.setItem("Rating", details.imdbRating)
- var released = details.Released
- localStorage.setItem("Released", details.Released)
- var genre = details.Genre
- localStorage.setItem("Genre", details.Genre)
- var writer = details.Writer
- localStorage.setItem("Writer", details.Writer)
- var actors = details.Actors
- localStorage.setItem("Actors", details.Actors)
- var plot = details.Plot
- localStorage.setItem("Plot", details.Plot)
- var language = details.Language
- localStorage.setItem("Language", details.Language)
- var award = details.Awards
- localStorage.setItem("Awards", details.Awards)
+        <div class = "movie-poster">
+            <img src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster">
+        </div>
+        <div class = "movie-info">
+            <h3 class = "movie-title">${details.Title}</h3>
+            <ul class = "movie-misc-info">
+                <li class = "year">Year: ${details.Year}</li>
+                <li class = "rated">Ratings: ${details.imdbRating}</li>
+                <li class = "released">Released: ${details.Released}</li>
+            </ul>
+            <p class = "genre"><b>Genre:</b> ${details.Genre}</p>
+            <p class = "writer"><b>Writer:</b> ${details.Writer}</p>
+            <p class = "actors"><b>Actors: </b>${details.Actors}</p>
+            <p class = "plot"><b>Plot:</b> ${details.Plot}</p>
+            <p class = "language"><b>Language:</b> ${details.Language}</p>
+            <p class = "awards"><b><i class = "fas fa-award"></i></b> ${details.Awards}</p>
+        </div>`;
+     var movieTitle = details.Title
+     localStorage.setItem("movieTitle", details.Title)   
+     var year = details.Year
+     localStorage.setItem("Year", details.Year)  
+     var rating = details.imdbRating
+     localStorage.setItem("Rating", details.imdbRating)
+     var released = details.Released
+     localStorage.setItem("Released", details.Released)
+     var genre = details.Genre
+     localStorage.setItem("Genre", details.Genre)
+     var writer = details.Writer
+     localStorage.setItem("Writer", details.Writer)
+     var actors = details.Actors
+     localStorage.setItem("Actors", details.Actors)
+     var plot = details.Plot
+     localStorage.setItem("Plot", details.Plot)
+     var language = details.Language
+     localStorage.setItem("Language", details.Language)
+     var award = details.Awards
+     localStorage.setItem("Awards", details.Awards)
  
 }
 
