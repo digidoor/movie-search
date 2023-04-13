@@ -10,18 +10,27 @@ router.get('/', withAuth, async (req, res) => {
       order: [['name', 'ASC']],
     });
 
-    const user = await User.findOne({
+    const user = (await User.findOne({
       attributes: { exclude: ['password'] },
       where: {
-        email: req.session.email
+        id: req.session.user_id
       }
-    })
-    if( user === null )
-    {
-      req.session.destroy( () => {
-      return res.json("you borked something. refresh and try again, or delete your cookies for this page and try again.");})
-    }
-    user = await user.get({ plain: true });
+    })).get({ plain: true });
+    
+    /*! ! Try to fix this stuff later !!!
+    // const user = await User.findOne({
+    //   attributes: { exclude: ['password'] },
+    //   where: {
+    //     email: req.session.email
+    //   }
+    // })
+    // if( user === null )
+    // {
+    //   req.session.destroy( () => {
+    //   return res.json("you borked something. refresh and try again, or delete your cookies for this page and try again.");})
+    // }
+    // user = await user.get({ plain: true });
+    */
 
     console.log("passing in this user:", user);
 
