@@ -10,12 +10,27 @@ router.get('/', withAuth, async (req, res) => {
       order: [['name', 'ASC']],
     });
 
-    const user = (await User.findOne({
+    // const user = (await User.findOne({
+    //   attributes: { exclude: ['password'] },
+    //   where: {
+    //     id: req.session.user_id
+    //   }
+    // })).get({ plain: true });
+    
+    //! ! Try to fix this stuff later !!!
+    const userCheck = await User.findOne({
       attributes: { exclude: ['password'] },
       where: {
-        id: req.session.user_id
+        email: req.session.email
       }
-    })).get({ plain: true });
+    })
+    if( userCheck === null )
+    {
+      req.session.destroy( () => {
+      return console.log("you borked something. refresh and try again, or delete your cookies for this page and try again.");});
+    }
+    const user = await userCheck.get({ plain: true });
+    //*/
 
     console.log("passing in this user:", user);
 
@@ -71,7 +86,7 @@ router.get('/movie/:id', withAuth, async (req, res) => {
     });
 
     const movie = dbMovieData.get({ plain: true });
-    res.render('movie', { movie, loggedIn: req.session.loggedIn });
+    res.render('movie', { ...movie, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
