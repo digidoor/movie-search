@@ -10,14 +10,26 @@ router.get('/', withAuth, async (req, res) => {
       order: [['name', 'ASC']],
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const user = (await User.findOne({
+      attributes: { exclude: ['password'] },
+      where: {
+        id: req.session.user_id
+      }
+    })).get({ plain: true });
 
-    res.render('homepage', {
-      users,
+    console.log("passing in this user:", user);
+
+    const users = userData.map((user) => user.get({ plain: true }));
+
+    console.log(users);
+
+    res.render('homepage', { //.handlebars but you don't need to put that
+      user,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -36,21 +48,26 @@ router.get('/login', (req, res) => {
 router.get('/movie/:id', withAuth, async (req, res) => {
   try {
     const dbMovieData = await Movie.findByPk(req.params.id, {
-      include: [
-        {
-          model: Movie,
-          attributes: [
-            'id',
-            'imdb',
-            'title',
-            'type',
-            'year',
-            'rating',
-            'filename',
-            'description',
-          ],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: Movie,
+      //     attributes: [
+      //       'id',
+      //       'imdb',
+      //       'title',
+      //       'year',
+      //       'rating',
+      //       'released',
+      //       'genre',
+      //       'writer',
+      //       'actors',
+      //       'plot',
+      //       'language',
+      //       'awards',
+      //       'poster',
+      //     ],
+      //   },
+      // ],
     });
 
     const movie = dbMovieData.get({ plain: true });
