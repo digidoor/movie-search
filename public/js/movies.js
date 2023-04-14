@@ -1,7 +1,7 @@
 
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
-const resultGrid = document.getElementById('result-grid');
+let resultGrid = document.getElementById('result-grid');
 const saveBtn = document.getElementById('saveBtn')
 
 // load movies from API
@@ -124,18 +124,15 @@ function displayMovieDetails(details){
 
     async function saveMovie(event)
     {
-        //grabbus;
+        //send a post request to save the current movie to the db
         console.log(movie.imdb);
-        console.log(imdb);
         const response = await fetch('/api/users/save', {
             method: 'POST',
             body: JSON.stringify({ ...movie }),
             headers: { 'Content-Type': 'application/json' }
         });
         if(response.ok)
-            console.log("saved: ", "test stuff-----------------");
-
-        //savus;
+            console.log("saved the movie to db, hopefully");
     }
 
     //add event listener to save button
@@ -151,10 +148,23 @@ async function showHistory()
     });
     if(response.ok)
         console.log("showHistory: ", "test stuff-----------------");
-    data = await response.json();
+    const data = await response.json();
     console.log(data);
-    //console.log(response.data);
+
+    //now to render this jerk
+    showHistory4real(data);
 }
+function showHistory4real(data)
+{
+    resultGrid.innerHTML = "";
+    for(let i=0;i<data.length;i++)
+    {
+        console.log(data[i].title);
+        resultGrid.innerHTML += `<h2>${data[i].title}</h2>`;
+        resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
+    }
+}
+
 document
     .querySelector("#movieHistory")
     .addEventListener('click', showHistory);
