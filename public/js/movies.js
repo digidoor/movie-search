@@ -107,38 +107,46 @@ function displayMovieDetails(details){
      localStorage.setItem("Awards", details.Awards);
     var imdb = details.imdbID;
     localStorage.setItem("imdb", details.imdbID);
+    localStorage.setItem("movie details", JSON.stringify(details));
+}   
+    // let movie = {
+    //     imdb,
+    //     title: movieTitle,
+    //     year,
+    //     rating,
+    //     released,
+    //     genre,
+    //     writer,
+    //     actors,
+    //     plot,
+    //     language,
+    //     awards
+    // };
     
-     let movie = {
-        imdb,
-        title: movieTitle,
-        year,
-        rating,
-        released,
-        genre,
-        writer,
-        actors,
-        plot,
-        language,
-        awards
-     };
+
 
     async function saveMovie(event)
     {
+        movie = JSON.parse(localStorage.getItem("movie details"));
+        console.log(movie);
         //send a post request to save the current movie to the db
-        console.log(movie.imdb);
+        console.log(movie.Title);
         const response = await fetch('/api/users/save', {
             method: 'POST',
-            body: JSON.stringify({ ...movie }),
+            body: JSON.stringify(movie),
             headers: { 'Content-Type': 'application/json' }
         });
         if(response.ok)
-            console.log("saved the movie to db, hopefully");
+        {
+            const data = await response.json();
+            console.log(data);
+        }
     }
 
     //add event listener to save button
     saveBtn.addEventListener('click', saveMovie);
  
-}
+
 
 async function showHistory()
 {
