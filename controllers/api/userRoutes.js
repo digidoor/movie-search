@@ -75,7 +75,7 @@ router.post('/save', async (req, res) => {
     console.log("router.post /save entered");
     console.log(req.body.imdb);
     const movieData = await Movie.create({
-      user_id: 1, //get the current user_id, but use 1 for now
+      user_id: req.session.user_id, //get the current user_id, but use 1 for now
       imdb: req.body.imdb,
       title: req.body.title,
       year: req.body.year,
@@ -113,7 +113,7 @@ router.post('/show', async (req, res) => {
   const movies = await Movie.findAll({
       order: ['title'],
       where: {
-          user_id: 1
+          user_id: req.session.user_id
       },
   });
   console.dir(movies);

@@ -151,8 +151,9 @@ async function showHistory()
     });
     if(response.ok)
         console.log("showHistory: ", "test stuff-----------------");
-    //data = response.json();
-    console.log(response.data);
+    data = await response.json();
+    console.log(data);
+    //console.log(response.data);
 }
 document
     .querySelector("#movieHistory")
