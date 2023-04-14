@@ -75,9 +75,9 @@ router.post('/save', async (req, res) => {
     console.log("router.post /save entered");
     console.log(req.body.imdb);
     const movieData = await Movie.create({
-      user_id: 1, //get the current user_id
+      user_id: req.session.user_id, //get the current user_id, but use 1 for now
       imdb: req.body.imdb,
-      title: req.body.movieTitle,
+      title: req.body.title,
       year: req.body.year,
       rating: req.body.rating,
       released: req.body.released,
@@ -103,5 +103,19 @@ router.post('/save', async (req, res) => {
   //   });
   // } catch (err) {
   //   res.status(500).json(err);
-  } catch (error) { console.error(error);}
+      res.json("okay");
+  } catch (error) { console.error(error); res.status(500).json(err);}
+});
+
+
+router.post('/show', async (req, res) => {
+  console.log("MOVIE HISTORY TEST-----------------------------");
+  const movies = await Movie.findAll({
+      order: ['title'],
+      where: {
+          user_id: req.session.user_id
+      },
+  });
+  console.dir(movies);
+  res.status(202).json(movies);
 });

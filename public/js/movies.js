@@ -109,6 +109,7 @@ function displayMovieDetails(details){
     localStorage.setItem("imdb", details.imdbID);
     
      let movie = {
+        imdb,
         title: movieTitle,
         year,
         rating,
@@ -118,18 +119,17 @@ function displayMovieDetails(details){
         actors,
         plot,
         language,
-        awards,
-        imdb
+        awards
      };
 
-    async function grabFromLocalStorageAndSave(event)
+    async function saveMovie(event)
     {
         //grabbus;
         console.log(movie.imdb);
         console.log(imdb);
         const response = await fetch('/api/users/save', {
             method: 'POST',
-            body: JSON.stringify({ imdb, movieTitle, year, rating, released, genre, writer, actors, plot, language, awards }),
+            body: JSON.stringify({ ...movie }),
             headers: { 'Content-Type': 'application/json' }
         });
         if(response.ok)
@@ -139,9 +139,26 @@ function displayMovieDetails(details){
     }
 
     //add event listener to save button
-    saveBtn.addEventListener('click', grabFromLocalStorageAndSave);
+    saveBtn.addEventListener('click', saveMovie);
  
 }
+
+async function showHistory()
+{
+    const response = await fetch('/api/users/show', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if(response.ok)
+        console.log("showHistory: ", "test stuff-----------------");
+    data = await response.json();
+    console.log(data);
+    //console.log(response.data);
+}
+document
+    .querySelector("#movieHistory")
+    .addEventListener('click', showHistory);
+
 
 window.addEventListener('click', (event) => {
     if(event.target.className != "form-control"){
