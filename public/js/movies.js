@@ -6,7 +6,7 @@ const saveBtn = document.getElementById('saveBtn')
 
 // load movies from API
 async function loadMovies(searchTerm){
-    const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=6fb32665`;
+    const URL = `http://omdbapi.com/?s=${searchTerm}&page=1&apikey=6fb32665`;
     const res = await fetch(`${URL}`);
     const data = await res.json();
     // console.log(data.Search);
@@ -164,7 +164,8 @@ function showHistory4real(data)
         console.log(data[i].year);
         resultGrid.innerHTML += `<h2>${data[i].title}</h2>`;
         resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
-    }
+    } saveBtn.style.display = "none"
+    
 }
 
 document
