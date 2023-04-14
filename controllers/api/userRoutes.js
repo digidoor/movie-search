@@ -103,5 +103,19 @@ router.post('/save', async (req, res) => {
   //   });
   // } catch (err) {
   //   res.status(500).json(err);
-  } catch (error) { console.error(error);}
+      res.json("okay");
+  } catch (error) { console.error(error); res.status(500).json(err);}
+});
+
+
+router.post('/show', async (req, res) => {
+  console.log("MOVIE HISTORY TEST-----------------------------");
+  const movies = await Movie.findAll({
+      order: ['title'],
+      where: {
+          user_id: 1
+      },
+  });
+  console.dir(movies);
+  res.status(202).json(movies);
 });

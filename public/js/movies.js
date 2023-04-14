@@ -122,7 +122,7 @@ function displayMovieDetails(details){
         awards
      };
 
-    async function grabFromLocalStorageAndSave(event)
+    async function saveMovie(event)
     {
         //grabbus;
         console.log(movie.imdb);
@@ -139,9 +139,25 @@ function displayMovieDetails(details){
     }
 
     //add event listener to save button
-    saveBtn.addEventListener('click', grabFromLocalStorageAndSave);
+    saveBtn.addEventListener('click', saveMovie);
  
 }
+
+async function showHistory()
+{
+    const response = await fetch('/api/users/show', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if(response.ok)
+        console.log("showHistory: ", "test stuff-----------------");
+    //data = response.json();
+    console.log(response.data);
+}
+document
+    .querySelector("#movieHistory")
+    .addEventListener('click', showHistory);
+
 
 window.addEventListener('click', (event) => {
     if(event.target.className != "form-control"){
