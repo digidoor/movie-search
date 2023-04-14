@@ -157,9 +157,11 @@ async function showHistory()
 function showHistory4real(data)
 {
     resultGrid.innerHTML = "";
+    console.log("in the show history 4 real function");
     for(let i=0;i<data.length;i++)
     {
         console.log(data[i].title);
+        console.log(data[i].year);
         resultGrid.innerHTML += `<h2>${data[i].title}</h2>`;
         resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
     }
