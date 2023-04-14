@@ -75,7 +75,7 @@ router.post('/save', async (req, res) => {
     console.log("router.post /save entered");
     console.log(req.body.imdb);
     const movieData = await Movie.create({
-      user_id: req.session.user_id, //get the current user_id, but use 1 for now
+      user_id: req.session.user_id, //get the current user_id
       imdb: req.body.imdb,
       title: req.body.title,
       year: req.body.year,
@@ -88,22 +88,7 @@ router.post('/save', async (req, res) => {
       language: req.body.language,
       awards: req.body.awards
     });
-      // name , email, password
-      // email: req.body.email,
-      // password: req.body.password,
-    
-
-  //   req.session.save(() => {
-  //     req.session.user_id = userData.id;
-  //     req.session.name = userData.name;
-  //     req.session.email = userData.email;
-  //     req.session.logged_in = true;
-
-  //     res.status(200).json(userData);
-  //   });
-  // } catch (err) {
-  //   res.status(500).json(err);
-      res.json("okay");
+    res.json("okay");
   } catch (error) { console.error(error); res.status(500).json(err);}
 });
 
