@@ -94,7 +94,7 @@ router.get('/movie/:id', withAuth, async (req, res) => {
 });
 
 router.get('/game', withAuth, async (req, res) => {
-  res.render('index');
+  res.render('index', {layout: 'BOC'});
 });
 
 module.exports = router;

@@ -13,8 +13,10 @@ const load = () => {
 
 const navGame = (e) => {
   let url = window.location.href;
+  console.log("url: ", url);
   let gameType = e.target.value;
   let index = url.indexOf("/index.html");
+  console.log("index: ", index);
   let gameID = e.target.parentElement.id;
   let genre = $(`#${gameID} .selection`).dropdown("get value");
 
