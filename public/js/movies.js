@@ -3,6 +3,7 @@ const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 let resultGrid = document.getElementById('result-grid');
 const saveBtn = document.getElementById('saveBtn')
+const gameBtn = document.getElementById('gameBtn');
 
 // load movies from API
 async function loadMovies(searchTerm){
@@ -125,28 +126,23 @@ function displayMovieDetails(details){
     
 
 
-    async function saveMovie(event)
+async function saveMovie(event)
+{
+    movie = JSON.parse(localStorage.getItem("movie details"));
+    console.log(movie);
+    //send a post request to save the current movie to the db
+    console.log(movie.Title);
+    const response = await fetch('/api/users/save', {
+        method: 'POST',
+        body: JSON.stringify(movie),
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if(response.ok)
     {
-        movie = JSON.parse(localStorage.getItem("movie details"));
-        console.log(movie);
-        //send a post request to save the current movie to the db
-        console.log(movie.Title);
-        const response = await fetch('/api/users/save', {
-            method: 'POST',
-            body: JSON.stringify(movie),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        if(response.ok)
-        {
-            const data = await response.json();
-            console.log(data);
-        }
+        const data = await response.json();
+        console.log(data);
     }
-
-    //add event listener to save button
-    saveBtn.addEventListener('click', saveMovie);
- 
-
+}
 
 async function showHistory()
 {
@@ -176,11 +172,29 @@ function showHistory4real(data)
     
 }
 
-document
+async function playGame()
+{
+    const response = await fetch('/api/users/game', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if(response.ok)
+        console.log("game stuff -----------------------");
+    const data = await response.json();
+    console.log(data);
+}
+
+document //add event listener to the movie history button
     .querySelector("#movieHistory")
     .addEventListener('click', showHistory);
 
+//add event listener to save button
+saveBtn.addEventListener('click', saveMovie);
 
+//add event listener to the BoxOfficeCrash button
+gameBtn.addEventListener('click', playGame);
+
+//hide the list of seach results if the user clicks outside of it
 window.addEventListener('click', (event) => {
     if(event.target.className != "form-control"){
         searchList.classList.add('hide-search-list');
