@@ -105,8 +105,8 @@ router.post('/show', async (req, res) => {
   res.status(202).json(movies);
 });
 
-router.post('/game', async (req, res) =>
-{
-  console.log("GAME TEST SERVER SIDE");
-  res.render('index'); // .handlebars
-});
+// router.get('/game', (req, res) =>
+// {
+//   console.log("GAME TEST SERVER SIDE");
+//   res.render('index'); // .handlebars
+// });

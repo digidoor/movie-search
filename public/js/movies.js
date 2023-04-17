@@ -148,7 +148,7 @@ async function showHistory()
 {
     const response = await fetch('/api/users/show', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' }//! 99% this is wrong but works anyway since it's not sending anything
     });
     if(response.ok)
         console.log("showHistory: ", "test stuff-----------------");
@@ -174,14 +174,15 @@ function showHistory4real(data)
 
 async function playGame()
 {
-    const response = await fetch('/api/users/game', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-    });
-    if(response.ok)
-        console.log("game stuff -----------------------");
-    const data = await response.json();
-    console.log(data);
+    // const response = await fetch('/api/users/game', {
+    //     method: 'GET',
+    //     headers: { 'Content-Type': 'text/html' }
+    // });
+    // if(response.ok)
+    //     console.log("game stuff -----------------------");
+    // const data = await response.json();
+    // console.log(data);
+    document.location.replace('/game');
 }
 
 document //add event listener to the movie history button
