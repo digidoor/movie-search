@@ -104,3 +104,9 @@ router.post('/show', async (req, res) => {
   console.dir(movies);
   res.status(202).json(movies);
 });
+
+// router.get('/game', (req, res) =>
+// {
+//   console.log("GAME TEST SERVER SIDE");
+//   res.render('index'); // .handlebars
+// });

@@ -56,7 +56,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login'); //.handlebars
 });
 
 
@@ -93,5 +93,8 @@ router.get('/movie/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/game', withAuth, async (req, res) => {
+  res.render('index', {layout: 'BOC'});
+});
 
 module.exports = router;
