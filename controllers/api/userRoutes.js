@@ -86,7 +86,8 @@ router.post('/save', async (req, res) => {
       actors: req.body.Actors,
       plot: req.body.Plot,
       language: req.body.Language,
-      awards: req.body.Awards
+      awards: req.body.Awards,
+      poster: req.body.Poster
     });
     res.json("saved a movie");
   } catch (error) { console.error(error); res.status(500).json(error);}
