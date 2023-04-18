@@ -166,8 +166,14 @@ function showHistory4real(data)
     {
         console.log(data[i].title);
         console.log(data[i].year);
+        console.log(data[i].poster);
+        resultGrid.innerHTML += `<div>`;
         resultGrid.innerHTML += `<h2>${data[i].title}</h2>`;
         resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
+        resultGrid.innerHTML += `<img src="${data[i].poster}";>`;
+        // resultGrid.innerHTML += ` style="object-fit:contain; height:100px;`;
+        // resultGrid.innerHTML += ` width:auto;">`;
+        resultGrid.innerHTML += `</div>`;
     } saveBtn.style.display = "none"
     
 }
