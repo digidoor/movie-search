@@ -169,10 +169,10 @@ function showHistory4real(data)
         console.log(data[i].poster);
         resultGrid.innerHTML += `<div>`;
         resultGrid.innerHTML += `<h2>${data[i].title}</h2>`;
-        resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
-        resultGrid.innerHTML += `<img src="${data[i].poster}";>`;
+        //resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
+        resultGrid.innerHTML += `<img src="${data[i].poster}"; style="object-fit:contain; height:400px; width:200px;">`;
         // resultGrid.innerHTML += ` style="object-fit:contain; height:100px;`;
-        // resultGrid.innerHTML += ` width:auto;">`;
+        // resultGrid.innerHTML += ` width:80px;">`;
         resultGrid.innerHTML += `</div>`;
     } saveBtn.style.display = "none"
     
