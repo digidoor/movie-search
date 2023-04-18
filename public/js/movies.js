@@ -151,7 +151,7 @@ async function showHistory()
         headers: { 'Content-Type': 'application/json' }//! 99% this is wrong but works anyway since it's not sending anything
     });
     if(response.ok)
-        console.log("showHistory: ", "test stuff-----------------");
+        console.log("Movie History requested.");
     const data = await response.json();
     console.log(data);
 
@@ -161,19 +161,13 @@ async function showHistory()
 function showHistory4real(data)
 {
     resultGrid.innerHTML = "";
-    console.log("in the show history 4 real function");
+    console.log("Rendering Movie History to page...");
     for(let i=0;i<data.length;i++)
     {
         console.log(data[i].title);
         console.log(data[i].year);
         console.log(data[i].poster);
-        resultGrid.innerHTML += `<div>`;
-        resultGrid.innerHTML += `<h2>${data[i].title}`;
-        //resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
-        resultGrid.innerHTML += `<img src="${data[i].poster}"; style="object-fit:contain; height:400px; width:200px;">`;
-        // resultGrid.innerHTML += ` style="object-fit:contain; height:100px;`;
-        // resultGrid.innerHTML += ` width:80px;">`;
-        resultGrid.innerHTML += `</h2></div>`;
+        resultGrid.innerHTML += `<h2>${data[i].title}<img src="${data[i].poster}"; style="object-fit:contain; height:400px; width:200px;"></h2>`;
     } saveBtn.style.display = "none"
     
 }
