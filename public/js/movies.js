@@ -3,6 +3,8 @@ const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 let resultGrid = document.getElementById('result-grid');
 const saveBtn = document.getElementById('saveBtn')
+let arrayvalue = JSON.parse(localStorage.getItem("city")) || []
+const movieHistory = document.querySelector(".moviehistory")
 
 // load movies from API
 async function loadMovies(searchTerm){
@@ -170,10 +172,9 @@ function showHistory4real(data)
     {
         console.log(data[i].title);
         console.log(data[i].year);
-        resultGrid.innerHTML += `<h2>${data[i].title}</h2>`;
+        resultGrid.innerHTML += `<h2>${data[i].title}</h2> alt=""`;
         resultGrid.innerHTML += `<h3>${data[i].year}</h3>`;
-    } saveBtn.style.display = "none"
-    
+    } saveBtn.style.display = "none"  
 }
 
 document
@@ -186,3 +187,38 @@ window.addEventListener('click', (event) => {
         searchList.classList.add('hide-search-list');
     }
 });
+
+// function renderHistoryList(e) {
+//     e.preventDefault();
+//     var search = movieSearchBox.value
+//     console.log(search)
+//     findMovies(search);
+//     arrayvalue.push(search)
+//     localStorage.setItem("city", JSON.stringify(arrayvalue))
+
+//     movieHistory.innerHTML = "";
+
+//     for (let i = 0; i < arrayvalue.length; i++) {
+//         let li = document.createElement("li")
+//         li.textContent = arrayvalue[i]
+//         li.addEventListener("click", function renderHistoryList(event) {
+//             console.log(event.target.innerHTML)
+//             cityWeather(event.target.innerHTML);
+//         })
+
+//         movieHistory.append(li)
+//     }
+
+
+// };
+
+// for (let i = 0; i < arrayvalue.length; i++) {
+//     let li = document.createElement("li")
+//     li.textContent = arrayvalue[i]
+//     li.addEventListener("click", function renderHistoryList(event) {
+//         console.log(event.target.innerHTML)
+//         findMovies(event.target.innerHTML);
+//     })
+
+//     movieHistory.append(li)
+// }
