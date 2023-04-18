@@ -1,7 +1,7 @@
 
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
-const resultGrid = document.getElementById('result-grid');
+let resultGrid = document.getElementById('result-grid');
 const saveBtn = document.getElementById('saveBtn')
 
 // load movies from API
@@ -107,44 +107,131 @@ function displayMovieDetails(details){
      localStorage.setItem("Awards", details.Awards);
     var imdb = details.imdbID;
     localStorage.setItem("imdb", details.imdbID);
+    localStorage.setItem("movie details", JSON.stringify(details));
+}   
+    // let movie = {
+    //     imdb,
+    //     title: movieTitle,
+    //     year,
+    //     rating,
+    //     released,
+    //     genre,
+    //     writer,
+    //     actors,
+    //     plot,
+    //     language,
+    //     awards
+    // };
     
-     let movie = {
-        title: movieTitle,
-        year,
-        rating,
-        released,
-        genre,
-        writer,
-        actors,
-        plot,
-        language,
-        awards,
-        imdb
-     };
 
-    async function grabFromLocalStorageAndSave(event)
+
+async function saveMovie(event)
+{
+    movie = JSON.parse(localStorage.getItem("movie details"));
+    console.log(movie);
+    //send a post request to save the current movie to the db
+    console.log(movie.Title);
+    const response = await fetch('/api/users/save', {
+        method: 'POST',
+        body: JSON.stringify(movie),
+        headers: { 'Content-Type': 'application/json' }
+    });
+    if(response.ok)
     {
-        //grabbus;
-        console.log(movie.imdb);
-        console.log(imdb);
-        const response = await fetch('/api/users/save', {
-            method: 'POST',
-            body: JSON.stringify({ imdb, movieTitle, year, rating, released, genre, writer, actors, plot, language, awards }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        if(response.ok)
-            console.log("saved: ", "test stuff-----------------");
-
-        //savus;
+        const data = await response.json();
+        console.log(data);
     }
-
-    //add event listener to save button
-    saveBtn.addEventListener('click', grabFromLocalStorageAndSave);
- 
 }
 
+async function showHistory()
+{
+    const response = await fetch('/api/users/show', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }//! 99% this is wrong but works anyway since it's not sending anything
+    });
+    if(response.ok)
+        console.log("Movie History requested.");
+    const data = await response.json();
+    console.log(data);
+
+    //now to render this jerk
+    showHistory4real(data);
+}
+function showHistory4real(data)
+{
+    resultGrid.innerHTML = "";
+    console.log("Rendering Movie History to page...");
+    for(let i=0;i<data.length;i++)
+    {
+        console.log(data[i].title);
+        console.log(data[i].year);
+        console.log(data[i].poster);
+        resultGrid.innerHTML += `<h2>${data[i].title}<img src="${data[i].poster}"; style="object-fit:contain; height:400px; width:200px;"></h2>`;
+    } saveBtn.style.display = "none"
+    
+}
+
+async function playGame()
+{
+    // const response = await fetch('/api/users/game', {
+    //     method: 'GET',
+    //     headers: { 'Content-Type': 'text/html' }
+    // });
+    // if(response.ok)
+    //     console.log("game stuff -----------------------");
+    // const data = await response.json();
+    // console.log(data);
+    document.location.replace('/game');
+}
+
+document //add event listener to the movie history button
+    .querySelector("#movieHistory")
+    .addEventListener('click', showHistory);
+
+//add event listener to save button
+saveBtn.addEventListener('click', saveMovie);
+
+//add event listener to the BoxOfficeCrash button
+gameBtn.addEventListener('click', playGame);
+
+//hide the list of seach results if the user clicks outside of it
 window.addEventListener('click', (event) => {
     if(event.target.className != "form-control"){
         searchList.classList.add('hide-search-list');
     }
 });
+
+// function renderHistoryList(e) {
+//     e.preventDefault();
+//     var search = movieSearchBox.value
+//     console.log(search)
+//     findMovies(search);
+//     arrayvalue.push(search)
+//     localStorage.setItem("city", JSON.stringify(arrayvalue))
+
+//     movieHistory.innerHTML = "";
+
+//     for (let i = 0; i < arrayvalue.length; i++) {
+//         let li = document.createElement("li")
+//         li.textContent = arrayvalue[i]
+//         li.addEventListener("click", function renderHistoryList(event) {
+//             console.log(event.target.innerHTML)
+//             cityWeather(event.target.innerHTML);
+//         })
+
+//         movieHistory.append(li)
+//     }
+
+
+// };
+
+// for (let i = 0; i < arrayvalue.length; i++) {
+//     let li = document.createElement("li")
+//     li.textContent = arrayvalue[i]
+//     li.addEventListener("click", function renderHistoryList(event) {
+//         console.log(event.target.innerHTML)
+//         findMovies(event.target.innerHTML);
+//     })
+
+//     movieHistory.append(li)
+// }

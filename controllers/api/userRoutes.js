@@ -73,35 +73,41 @@ module.exports = router;
 router.post('/save', async (req, res) => {
   try {
     console.log("router.post /save entered");
-    console.log(req.body.imdb);
+    console.log(req.body.Title);
     const movieData = await Movie.create({
-      user_id: 1, //get the current user_id
-      imdb: req.body.imdb,
-      title: req.body.movieTitle,
-      year: req.body.year,
-      rating: req.body.rating,
-      released: req.body.released,
-      genre: req.body.genre,
-      writer: req.body.writer,
-      actors: req.body.actors,
-      plot: req.body.plot,
-      language: req.body.language,
-      awards: req.body.awards
+      user_id: req.session.user_id, //get the current user_id
+      imdb: req.body.imdbID,
+      title: req.body.Title,
+      year: req.body.Year,
+      rating: req.body.imdbRating,
+      released: req.body.Released,
+      genre: req.body.Genre,
+      writer: req.body.Writer,
+      actors: req.body.Actors,
+      plot: req.body.Plot,
+      language: req.body.Language,
+      awards: req.body.Awards,
+      poster: req.body.Poster
     });
-      // name , email, password
-      // email: req.body.email,
-      // password: req.body.password,
-    
-
-  //   req.session.save(() => {
-  //     req.session.user_id = userData.id;
-  //     req.session.name = userData.name;
-  //     req.session.email = userData.email;
-  //     req.session.logged_in = true;
-
-  //     res.status(200).json(userData);
-  //   });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  } catch (error) { console.error(error);}
+    res.json("saved a movie");
+  } catch (error) { console.error(error); res.status(500).json(error);}
 });
+
+
+router.post('/show', async (req, res) => {
+  console.log("MOVIE HISTORY TEST-----------------------------");
+  const movies = await Movie.findAll({
+      order: ['title'],
+      where: {
+          user_id: req.session.user_id
+      },
+  });
+  console.dir(movies);
+  res.status(202).json(movies);
+});
+
+// router.get('/game', (req, res) =>
+// {
+//   console.log("GAME TEST SERVER SIDE");
+//   res.render('index'); // .handlebars
+// });

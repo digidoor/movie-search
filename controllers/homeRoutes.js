@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Movie } = require('../models');
+const { User, Movie, Game } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
@@ -56,7 +56,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login'); //.handlebars
 });
 
 
@@ -90,6 +90,29 @@ router.get('/movie/:id', withAuth, async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+
+
+
+
+ 
+
+router.get('/game', withAuth, async (req, res) => {
+  try {
+    const dbMovieData = await Game.findByPk(req.params.id, {
+    });
+
+// res.render('main', {layout : 'index'});   BOC
+// res.render('index', {layout: 'BOC'});
+
+
+    const game = dbMovieData.get({ plain: true });
+    res.render('game', { ...game, loggedIn: req.session.loggedIn });
+    } catch (err) {
+    console.log(err);
+    res.status(505).json(err);
   }
 });
 
