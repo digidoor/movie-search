@@ -3,6 +3,7 @@ const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
 let resultGrid = document.getElementById('result-grid');
 const saveBtn = document.getElementById('saveBtn')
+const gameBtn = document.getElementById('gameBtn');
 
 // load movies from API
 async function loadMovies(searchTerm){
