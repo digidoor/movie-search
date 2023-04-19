@@ -1,10 +1,9 @@
 const User = require('./User');
 const Movie = require('./Movie');
-const Game = require('./Game');
 
-module.exports = { User, Movie, Game };
+module.exports = { User, Movie };
 
-User.hasMany(Movie, Game, {
+User.hasMany(Movie, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
